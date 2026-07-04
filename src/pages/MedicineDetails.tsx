@@ -79,7 +79,7 @@ export default function MedicineDetails() {
           <div className="grid grid-cols-4 gap-3">
             {medicine.images.map((img, idx) => (
               <button
-                key={idx}
+                key={img}
                 onClick={() => setActiveImage(idx)}
                 className={`aspect-square rounded-xl overflow-hidden glass border-2 transition-all ${
                   activeImage === idx ? 'border-cyan-400 shadow-glow-cyan' : 'border-transparent opacity-50 hover:opacity-100'
