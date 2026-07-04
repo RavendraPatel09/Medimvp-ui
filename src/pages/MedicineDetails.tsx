@@ -9,7 +9,6 @@ import { MEDICINES } from '../data/mockData'
 import { formatPrice } from '../lib/utils'
 import { fadeInUp, staggerContainer, staggerItem } from '../lib/animations'
 import { useUIStore } from '../store/uiStore'
-
 export default function MedicineDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
