@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ────────────────────────────────────────── */
+:root {
+  --base-950: #03060F;
+  --base-900: #060C1B;
+  --base-800: #091226;
+  --base-700: #0D1B38;
+  --cyan: #00D9FF;
+  --violet: #8B5CF6;
+  --rose: #FF3CAC;
+  --emerald: #00D9A0;
+  --glass-border: rgba(0, 217, 255, 0.10);
+  --glass-bg: rgba(9, 18, 38, 0.70);
+}
+
+/* ─── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #03060F;
+  color: #F0F4FF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(0,217,255,0.03); border-radius: 999px; }
+::-webkit-scrollbar-thumb { background: rgba(0,217,255,0.18); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,217,255,0.40); }
+
+/* ─── Glass System ──────────────────────────────────────────── */
+.glass {
+  background: rgba(9, 18, 38, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 217, 255, 0.08);
+}
+
+.glass-sm {
+  background: rgba(6, 12, 27, 0.60);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 217, 255, 0.06);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(0,217,255,0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 217, 255, 0.09);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+  position: relative;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(0,217,255,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.glass-strong {
+  background: rgba(9, 18, 38, 0.90);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(0, 217, 255, 0.14);
+}
+
+/* ─── Gradient Text ─────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #00D9FF 0%, #8B5CF6 50%, #FF3CAC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #00D9FF 0%, #0099C2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-violet {
+  background: linear-gradient(135deg, #B893FF 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow Effects ──────────────────────────────────────────── */
+.glow-cyan { box-shadow: 0 0 24px rgba(0,217,255,0.4), 0 0 60px rgba(0,217,255,0.15); }
+.glow-violet { box-shadow: 0 0 24px rgba(139,92,246,0.4), 0 0 60px rgba(139,92,246,0.15); }
+.glow-rose { box-shadow: 0 0 24px rgba(255,60,172,0.4), 0 0 60px rgba(255,60,172,0.15); }
+.glow-emerald { box-shadow: 0 0 24px rgba(0,217,160,0.4), 0 0 60px rgba(0,217,160,0.15); }
+
+/* ─── Gradient Border ───────────────────────────────────────── */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(var(--base-900), var(--base-900)) padding-box,
+              linear-gradient(135deg, rgba(0,217,255,0.6), rgba(139,92,246,0.6), rgba(255,60,172,0.6)) border-box;
+  border: 1px solid transparent;
+}
+
+/* ─── Shimmer Skeleton ──────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0,217,255,0.04) 25%,
+    rgba(0,217,255,0.1) 50%,
+    rgba(0,217,255,0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─── Animated Background Grid ─────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,217,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,217,255,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ─── Aurora Blobs ──────────────────────────────────────────── */
+.aurora-1 { animation: aurora 14s ease-in-out infinite; }
+.aurora-2 { animation: aurora 18s ease-in-out infinite reverse; }
+.aurora-3 { animation: aurora 22s ease-in-out infinite 4s; }
+
+/* ─── Focus Ring ────────────────────────────────────────────── */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(0,217,255,0.6);
+  outline-offset: 2px;
+}
+
+/* ─── Active Nav Pill ───────────────────────────────────────── */
+.nav-active {
+  background: linear-gradient(135deg, rgba(0,217,255,0.15) 0%, rgba(139,92,246,0.1) 100%);
+  border: 1px solid rgba(0,217,255,0.2);
+}
+
+/* ─── Custom Select & Date Input ───────────────────────────── */
+select option, select optgroup { background: #091226; color: #e2e8f0; }
+input[type=date]::-webkit-calendar-picker-indicator { filter: invert(0.6) sepia(1) hue-rotate(170deg); cursor: pointer; }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input:focus, textarea:focus, select:focus { outline: none; }
+
+/* ─── Miscellaneous ─────────────────────────────────────────── */
+.no-select { -webkit-user-select: none; user-select: none; }
+.perspective { perspective: 1200px; }
+.ripple-host { position: relative; overflow: hidden; }
